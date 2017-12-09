@@ -1,0 +1,28 @@
+<div class="container-fluid">
+ <div class="row">
+  <div class="panel-body">
+   <%= form_for(product) do |f| %>
+    <% if product.errors.any? %>
+     <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+       <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+       <% end %>
+      </ul>
+     </div>
+    <% end %>
+
+    <div class="form-group">
+     <%= f.text_field :name, autofocus: true, placeholder: "Nombre", class: "form-control" %>
+     <%= f.text_field :description, autofocus: true, placeholder: "Descripción", class: "form-control" %>
+     <%= f.text_field :cost_price, autofocus: true, placeholder: "Precio de costo", class: "form-control" %>
+     <%= f.text_field :sale_price, autofocus: true, placeholder: "Precio de venta", class: "form-control" %>
+    </div>
+
+    <%= f.submit "Aceptar", class: "btn btn-success" %>
+   <% end %>
+  </div>
+ </div>
+</div>

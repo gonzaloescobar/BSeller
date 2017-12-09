@@ -1,0 +1,18 @@
+
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 500
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3 #":memory:"
+  timeout: 500
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: pg_heroku
+  pool: 5
+  timeout: 500
