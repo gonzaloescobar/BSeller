@@ -1,0 +1,21 @@
+version: '2'
+services:
+  postgresql:
+    image: postgres
+    environment:
+      - POSTGRES_USER=railsapi
+      - POSTGRES_DB=railsapi_production
+      - POSTGRES_PASSWORD=123456
+      
+  webapi:
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgresql
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - SECRET_KEY_BASE=mysecretkey
+      - RAILS_ENV=production
+      - RAILS_LOG_TO_STDOUT=true
